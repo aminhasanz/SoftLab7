@@ -4,7 +4,7 @@ package MiniJava.codeGenerator;
  * Created by mohammad hosein on 6/28/2015.
  */
 
-public class Address {
+public abstract class Address {
     public int num;
     public TypeAddress Type;
     public varType varType;
@@ -21,15 +21,23 @@ public class Address {
         this.varType = varType;
     }
 
+    public abstract String toString();
+}
+
+public class Direct extends Address {
     public String toString() {
-        switch (Type) {
-            case Direct:
-                return num + "";
-            case Indirect:
-                return "@" + num;
-            case Imidiate:
-                return "#" + num;
-        }
         return num + "";
+    }
+}
+
+public class Indirect extends Address {
+    public String toString() {
+        return "@" + num;
+    }
+}
+
+public class Imidiate extends Address {
+    public String toString() {
+        return "#" + num;
     }
 }
