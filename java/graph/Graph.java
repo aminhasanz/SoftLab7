@@ -62,4 +62,15 @@ public class Graph {
         }
     }
 
+
+    public Node addNode() {
+        Node newNode = new Node();
+        graph.add(newNode);
+        return newNode;
+    }
+
+    public Edge addEdge(Node a, Node b, boolean directed, int weight) {
+        return Edge.createEdge(a, b, directed, weight);
+    }
+
 }
