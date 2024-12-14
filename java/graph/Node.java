@@ -56,8 +56,5 @@ public class Node implements Comparable<Node> {
         return Integer.compare(this.distance, o.distance);
     }
 
-    @Override
-    public int compareTo(Node o) {
-        return o.hashCode() - hashCode();
-    }
+
 }
