@@ -1,3 +1,23 @@
+توضیحات بازآرایی‌ها:
+Facade Pattern (کلاس Graph):
+
+متدهای addNode و addEdge برای ساده کردن تعامل با گراف اضافه شد.
+متد traverse برای اعمال الگوریتم پیمایش با استفاده از الگوی استراتژی اضافه شد.
+State/Strategy Pattern:
+
+کلاس‌های BFSTraversal و DijkstraTraversal ایجاد شدند و از طریق اینترفیس GraphTraversalStrategy عمل می‌کنند.
+Separate Query from Modifier (کلاس Node):
+
+متدهای getAvailableNeighbors و getAvailableWeightedNeighbors تغییر داده شدند تا تنها داده بازگردانند.
+Self Encapsulated Field (کلاس Node):
+
+فیلدهای visited و distance مستقیماً قابل دسترسی نیستند و از طریق getter و setter مدیریت می‌شوند.
+Replace Magic Number (کلاس Node):
+
+متد compareTo بر اساس distance بازنویسی شد.
+Extract Method (کلاس Graph):
+بخشی از منطق dijkstra به کلاس استراتژی منتقل شد.
+
 # پاسخ سوالات
 ۱. کد تمیز: کدی که دارای چند ویژگی است:
 الف) برای دیگر برنامه نویس ها واضح و قابل فهم است.
