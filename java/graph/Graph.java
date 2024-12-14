@@ -31,5 +31,7 @@ class Graph {
         return newNode;
     }
 
-    
+     public Edge addEdge(Node a, Node b, boolean directed, int weight) {
+        return Edge.createEdge(a, b, directed, weight);
+    }
 }
