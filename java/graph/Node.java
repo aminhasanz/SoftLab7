@@ -21,22 +21,24 @@ public class Node implements Comparable<Node> {
     }
 
     public ArrayList<Pair<Node, Integer>> getAvailableWeightedNeighbors() {
-        return getEdges()
-                .stream()
+        return edges.stream()
                 .filter(edge -> !edge.isDirected() || edge.getNodes().getValue0() == this)
-                .map(edge -> new Pair<Node, Integer>(
-                        (edge.getNodes().getValue0().equals(this)) ? edge.getNodes().getValue1()
-                                : edge.getNodes().getValue0(),
+                .map(edge -> new Pair<>(
+                        edge.getNodes().getValue0().equals(this) ? edge.getNodes().getValue1() : edge.getNodes().getValue0(),
                         edge.getWeight()))
                 .filter(pair -> !pair.getValue0().isVisited())
-                .collect(Collectors.toCollection(ArrayList::new));
+                .collect(Collectors.toList());
     }
 
     public ArrayList<Node> getAvailableNeighbors() {
-        return getAvailableWeightedNeighbors()
-                .stream()
-                .map(pair -> pair.getValue0())
-                .collect(Collectors.toCollection(ArrayList::new));
+        return getAvailableWeightedNeighbors().stream()
+                .map(Pair::getValue0)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public int compareTo(Node o) {
+        return Integer.compare(this.distance, o.distance);
     }
 
     @Override
