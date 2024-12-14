@@ -19,6 +19,21 @@ public class Node implements Comparable<Node> {
     public Node() {
         edges = new ArrayList<>();
     }
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
 
     public ArrayList<Pair<Node, Integer>> getAvailableWeightedNeighbors() {
         return edges.stream()
