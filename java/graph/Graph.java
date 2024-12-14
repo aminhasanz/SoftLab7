@@ -62,6 +62,13 @@ public class Graph {
         }
     }
 
+    public void traverse(Node start) {
+        if (traversalStrategy != null) {
+            traversalStrategy.traverse(this, start);
+        } else {
+            throw new IllegalStateException("Traversal strategy not set.");
+        }
+    }
 
     public Node addNode() {
         Node newNode = new Node();
